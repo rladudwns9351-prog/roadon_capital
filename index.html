@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,noai,noimageai">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<title>로드온_종합</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="application-name" content="로드온_종합">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="로드온_종합">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --surface-2:#eef1f6; --line:#dde2ea;
+  --ink:#141c2b; --ink-2:#4c5669; --ink-3:#8a93a4;
+  --accent:#0047e0; --accent-ink:#ffffff; --accent-soft:#e3ecff;
+  --warn:#b42318; --warn-soft:#fde8e6;
+  --shadow:0 1px 2px rgba(20,28,43,.06),0 4px 16px rgba(20,28,43,.06);
+  --f-body:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1320; --surface:#161d2d; --surface-2:#1d2638; --line:#2a3448;
+  --ink:#e8ecf4; --ink-2:#aab3c5; --ink-3:#737e93;
+  --accent:#6f95ff; --accent-ink:#0b1020; --accent-soft:#1f2c4d;
+  --warn:#ff8a80; --warn-soft:#3b1a18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1320; --surface:#161d2d; --surface-2:#1d2638; --line:#2a3448;
+  --ink:#e8ecf4; --ink-2:#aab3c5; --ink-3:#737e93;
+  --accent:#6f95ff; --accent-ink:#0b1020; --accent-soft:#1f2c4d;
+  --warn:#ff8a80; --warn-soft:#3b1a18; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5;-webkit-text-size-adjust:100%}
+.g-brand{background:#000;border-radius:12px;padding:18px 0 16px;margin:0 0 18px;text-align:center}.g-brand img{height:74px;display:inline-block;vertical-align:top}
+.gate{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px 16px}
+.g-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:28px 24px 22px;display:grid;gap:14px}
+.g-card h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-.01em}
+.g-sub{margin:-6px 0 4px;color:var(--ink-2);font-size:13px}
+.g-f{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.g-f input{height:46px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);padding:0 14px;font:inherit;font-size:15px;font-weight:500}
+.g-f input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.g-chk{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);cursor:pointer;user-select:none;justify-self:start}
+.g-chk input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
+.g-btn{height:48px;border:0;border-radius:10px;background:var(--accent);color:var(--accent-ink);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.g-btn:disabled{opacity:.5;cursor:default}
+.g-msg{min-height:1.2em;font-size:13px;color:var(--ink-2)}
+.g-msg.err{color:var(--warn);font-weight:600}
+.g-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:12px}
+.g-link{border:0;background:none;color:var(--ink-3);font:inherit;font-size:12.5px;cursor:pointer;padding:2px 0}
+.g-link:hover{color:var(--accent)}
+.g-mode{font-size:12px;font-weight:700;color:var(--accent)}
+.g-up{display:grid;gap:8px;border:1px dashed var(--line);border-radius:10px;padding:12px;font-size:13px;color:var(--ink-2)}
+.blk{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px 16px;background:#0e1320;color:#e8ecf4;font-family:var(--f-body)}
+.blk-c{max-width:460px;text-align:center;display:grid;gap:14px}
+.blk-i{width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:#3b1a18;color:#ff8a80;font-size:32px;font-weight:700}
+.blk h1{margin:0;font-size:22px}
+.blk p{margin:0;color:#aab3c5;font-size:14px;line-height:1.7}
+/* ---- PC 앱(PWA) 설치 안내 ---- */
+.g-inst{justify-self:center;color:var(--accent);font-weight:600}
+.pw-bg{position:fixed;inset:0;z-index:99999;background:rgba(14,19,32,.45);display:grid;place-items:center;padding:16px}
+.pw{width:100%;max-width:440px;background:var(--surface);color:var(--ink);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);padding:26px 26px 18px;display:grid;gap:16px}
+.pw-h{display:flex;gap:14px;align-items:center}
+.pw-h img{width:58px;height:58px;border-radius:14px;flex:none}
+.pw-h h2{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.pw-h p{margin:3px 0 0;font-size:13px;color:var(--ink-2)}
+.pw-l{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14px;color:var(--ink-2)}
+.pw-l li{display:flex;gap:9px;align-items:flex-start}
+.pw-l li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
+.pw-l b{color:var(--accent);font-weight:700}
+.pw-b{display:grid;grid-template-columns:1fr 1.6fr;gap:8px}
+.pw-b.one{grid-template-columns:1fr}
+.pw-b button{height:46px;border-radius:10px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;border:0}
+.pw-no{background:var(--surface-2);color:var(--ink-2)}
+.pw-go{background:var(--accent);color:var(--accent-ink)}
+.pw-f{text-align:center;font-size:12px;color:var(--ink-3)}
+/* ---- PC 앱 제목줄 (window-controls-overlay) : 크롬 제목줄 자리에 앱 이름 + ⚙ 설정 ---- */
+#wco{display:none}
+@media (display-mode: window-controls-overlay){
+  body{padding-top:env(titlebar-area-height,36px)}
+  #wco{display:flex;position:fixed;left:env(titlebar-area-x,0);top:env(titlebar-area-y,0);width:env(titlebar-area-width,100%);height:env(titlebar-area-height,36px);z-index:100001;align-items:center;gap:8px;padding:0 10px;background:var(--surface);border-bottom:1px solid var(--line);-webkit-app-region:drag;app-region:drag;font-size:13px;font-weight:700;color:var(--ink)}
+  #wco img{width:18px;height:18px;border-radius:5px}
+  #wco .sp{flex:1}
+  #wco button{-webkit-app-region:no-drag;app-region:no-drag;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2);border-radius:7px;padding:2px 10px;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
+  .upd,.pw-bg{top:env(titlebar-area-height,0)}
+}
+/* ---- 화면 업데이트 안내 ---- */
+.upd{position:fixed;inset:0;z-index:100000;background:rgba(14,19,32,.55);display:grid;place-items:center;padding:16px}
+.upd>div{width:100%;max-width:380px;background:var(--surface);color:var(--ink);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);padding:28px 26px;text-align:center;display:grid;gap:10px;justify-items:center}
+.upd h2{margin:0;font-size:18px;font-weight:700}.upd p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.upd .upd-ic{width:56px;height:56px;border-radius:14px}
+.upd-g{width:100%;height:12px;border-radius:999px;background:var(--surface-2);overflow:hidden;margin-top:6px}
+.upd-g i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#6f95ff);border-radius:999px;transition:width .25s ease}
+.upd-pct{font-size:13px;font-weight:700;color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace}
+.pw-a{display:grid;gap:8px}
+.pw-a a,.pw-a button{width:100%;margin:0;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:50px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14.5px;font-weight:700;text-decoration:none;cursor:pointer;text-align:left}
+.pw-a .pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pw-a small{display:block;font-size:12px;font-weight:500;opacity:.8;margin-top:2px}
+.pw-a i{font-style:normal;font-size:18px;opacity:.85;flex:none}
+/* ---- 아이폰·아이패드 : 필수 동의 → 홈 화면에 추가 안내 ---- */
+.pw-agree{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 13px;font-size:13px;line-height:1.55;color:var(--ink-2);cursor:pointer;background:var(--surface-2)}
+.pw-agree input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--accent)}
+.pw-agree b{color:var(--warn)}
+.pw-agree.on{border-color:var(--accent);background:var(--accent-soft)}
+.pw-go:disabled{opacity:.4;cursor:default}
+.pw-l.pw-n{counter-reset:pw}
+.pw-l.pw-n li::before{counter-increment:pw;content:counter(pw);width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:12px;display:grid;place-items:center;margin-top:-1px}
+.pw-sh{display:inline-block;width:17px;height:17px;vertical-align:-3px;margin:0 2px}
+.pw-arr{position:fixed;z-index:100000;left:50%;bottom:max(8px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.3);animation:pwB 1s ease-in-out infinite;pointer-events:none}
+.pw-arr.top{left:auto;right:14px;bottom:auto;top:8px;transform:none}
+.pw-arr svg{width:26px;height:26px}
+.pw-arr.top svg{transform:rotate(180deg)}
+@keyframes pwB{0%,100%{margin-bottom:0;margin-top:0}50%{margin-bottom:-8px;margin-top:-8px}}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <form class="g-card" id="gForm" autocomplete="on" novalidate>
+    <div class="g-brand"><img src="logo.svg" alt="ROAD ON MOBILITY"></div>
+    <h1 id="gTitle">로그인</h1>
+    <p class="g-sub" id="gSub">등록된 이메일 주소로 로그인해 주세요.</p>
+    <label class="g-f">이메일<input id="gEmail" type="email" inputmode="email" autocomplete="username" placeholder="name@company.com" required></label>
+    <label class="g-f" id="gPwRow" hidden>비밀번호<input id="gPw" type="password" autocomplete="current-password"></label>
+    <label class="g-chk"><input type="checkbox" id="gSave"> 아이디 저장</label>
+    <button class="g-btn" id="gGo" type="submit">로그인</button>
+    <div class="g-msg" id="gMsg" role="status" aria-live="polite"></div>
+    <div class="g-up" id="gUp" hidden>
+      <b>화면 파일 등록 필요</b>
+      <span>전달받은 화면 파일(app-bundle.json)을 선택하면 서버에 등록되고 바로 열립니다.</span>
+      <input type="file" id="gUpFile" accept=".json,application/json">
+    </div>
+    <div class="g-foot"><span class="g-mode" id="gModeLbl">영업 담당자</span><button class="g-link" id="gMode" type="button">관리자 로그인</button></div>
+    <button class="g-link g-inst" id="gInst" type="button" hidden>PC 앱으로 설치</button>
+  </form>
+</div>
+<div id="app" hidden></div>
+<div id="wco"><img src="icon-192.png" alt="">로드온_종합<span class="sp"></span><button type="button" id="wcoTheme" title="화면 화이트/블랙 전환">🌙 블랙</button><button type="button" id="wcoSet" title="설정">⚙ 설정</button></div>
+<div class="upd" id="upd" hidden><div><img class="upd-ic" src="icon-192.png" alt=""><h2 id="updT">화면을 업데이트하고 있습니다</h2><p id="updS">관리자가 새 화면을 반영했습니다.<br>잠시 후 자동으로 새 화면이 열립니다.</p><div class="upd-g"><i id="updBar"></i></div><div class="upd-pct" id="updPct">0%</div></div></div>
+<div class="pw-bg" id="pwBg" hidden>
+  <div class="pw" role="dialog" aria-modal="true" aria-labelledby="pwT">
+    <div class="pw-h"><img src="icon-192.png" alt=""><div><h2 id="pwT"></h2><p id="pwS"></p></div></div>
+    <ul class="pw-l" id="pwL"></ul>
+    <div class="pw-a" id="pwA" hidden></div>
+    <div class="pw-b" id="pwB"><button type="button" class="pw-no" id="pwNo">다음에</button><button type="button" class="pw-go" id="pwGo"></button></div>
+    <div class="pw-f" id="pwF"></div>
+  </div>
+  <div class="pw-arr" id="pwArr" hidden aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg></div>
+</div>
+<script>
+(function(){
+'use strict';
+var CFG = {url: 'https://juzqzhtrgtnhjajbcaoo.supabase.co', key: 'sb_publishable_0a-1AMN7_C20FKcPDKqVdQ_feRjmNUL'};
+var K = {sess: 'qw_s', adm: 'qw_a', mail: 'qw_m', amail: 'qw_am', blk: 'qw_b', msg: 'qw_msg', pwa: 'qw_pwa', appv: 'ro_v'};
+var LS = {
+  get: function(k){ try { return JSON.parse(localStorage.getItem(k)); } catch(e){ return null; } },
+  set: function(k, v){ try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+var $ = function(id){ return document.getElementById(id); };
+var SESS = LS.get(K.sess), ADM = LS.get(K.adm), BLOCKED = false, MOUNTED = false, adminMode = false, HB = null, EXPT = null;
+
+/* ---------- 서버 호출 ---------- */
+function rpc(fn, args, jwt){
+  var h = {'apikey': CFG.key, 'Content-Type': 'application/json'};
+  if (jwt) h.Authorization = 'Bearer ' + jwt;
+  return fetch(CFG.url + '/rest/v1/rpc/' + fn, {method: 'POST', headers: h, body: JSON.stringify(args || {}), cache: 'no-store'})
+    .then(function(r){ return r.text().then(function(t){
+      var j = null; try { j = t ? JSON.parse(t) : null; } catch(e){}
+      if (!r.ok) throw new Error((j && (j.message || j.hint)) || ('서버 오류 ' + r.status));
+      return j;
+    }); });
+}
+function authReq(grant, body){
+  return fetch(CFG.url + '/auth/v1/token?grant_type=' + grant, {
+    method: 'POST', headers: {'apikey': CFG.key, 'Content-Type': 'application/json'}, body: JSON.stringify(body)
+  }).then(function(r){ return r.json().then(function(j){
+    if (!r.ok || !j.access_token) throw new Error(/invalid/i.test(j.error_description || j.msg || '') ? '이메일 또는 비밀번호가 올바르지 않습니다.' : (j.error_description || j.msg || ('로그인 실패 ' + r.status)));
+    return {jwt: j.access_token, refresh: j.refresh_token, exp: Date.now() + (j.expires_in || 3600) * 1000 - 60000};
+  }); });
+}
+function adminToken(){
+  if (!ADM) return Promise.reject(new Error('관리자 로그인이 필요합니다.'));
+  if (Date.now() < ADM.exp) return Promise.resolve(ADM.jwt);
+  return authReq('refresh_token', {refresh_token: ADM.refresh}).then(function(a){ ADM = a; LS.set(K.adm, a); return a.jwt; })
+    .catch(function(){ expire('관리자 로그인이 만료되었습니다. 다시 로그인해 주세요.'); throw new Error('관리자 로그인 만료'); });
+}
+
+/* ---------- 비정상 접근 감지 ---------- */
+var BOT_RE = /HeadlessChrome|PhantomJS|Puppeteer|Playwright|Selenium|WebDriver|\bbot\b|bot\/|crawl|spider|slurp|GPTBot|ChatGPT|OAI-Search|Claude|anthropic|Perplexity|Bytespider|CCBot|Diffbot|Amazonbot|python|curl\/|wget|httpclient|okhttp|axios|node-fetch|Go-http|Java\//i;
+var GLOBAL_RE = /^(__playwright|__pw|__puppeteer|puppeteer|cdc_|\$cdc_|__webdriver|__selenium|__driver|__fxdriver|_Selenium|calledSelenium|_WEBDRIVER|__lastWatirAlert|__nightmare|domAutomation|_phantom|callPhantom|Cypress)/i;
+function autoCheck(){
+  var n = navigator, w = window, d = document, r = [];
+  try {
+    if (n.webdriver) r.push('webdriver');
+    if (BOT_RE.test(n.userAgent || '')) r.push('user-agent');
+    var de = d.documentElement;
+    if (de.getAttribute('webdriver') || de.getAttribute('selenium') || de.getAttribute('driver')) r.push('dom-attr');
+    Object.getOwnPropertyNames(w).forEach(function(k){ if (GLOBAL_RE.test(k)) r.push(k); });
+    Object.getOwnPropertyNames(d).forEach(function(k){ if (GLOBAL_RE.test(k)) r.push(k); });
+    if (n.languages !== undefined && n.languages.length === 0) r.push('languages');
+  } catch(e){}
+  return r;
+}
+function devtoolsOpen(){
+  /* 1회 감지로 계정이 정지되므로 오감지 방지 :
+     1초 넘게 멈춤 = 개발자도구에서 멈춘 상태(사람이 재개·닫기) → 바로 감지
+     0.15~1초 = PC 순간 부하일 수 있음 → 한 번 더 재서 또 걸릴 때만 감지 */
+  function ms(){ var t = performance.now(); try { (function(){}).constructor('debugger')(); } catch(e){} return performance.now() - t; }
+  var a = ms();
+  if (a <= 150) return false;
+  if (a > 1000) return true;
+  return ms() > 150;
+}
+function showBlock(){
+  document.title = '접근 제한';
+  document.body.className = '';
+  document.body.innerHTML = '<div class="blk"><div class="blk-c"><div class="blk-i">!</div>' +
+    '<h1>비정상적인 접근이 감지되었습니다</h1>' +
+    '<p>자동화 도구, 개발자 도구, 데이터 수집·분석 프로그램을 통한 접근은 허용되지 않습니다.<br>접근 기록이 관리자에게 전달되었습니다.</p>' +
+    '<p><b>로그인한 계정은 이용이 정지되며, 관리자가 해제해야 다시 이용할 수 있습니다.</b><br>관리자에게 문의하세요.</p></div></div>';
+}
+function block(reason){
+  if (BLOCKED) return; BLOCKED = true;
+  var tk = SESS && SESS.token, em = (SESS && SESS.email) || ($('gEmail') && $('gEmail').value) || '';
+  clearInterval(HB); clearTimeout(EXPT);
+  LS.set(K.sess, null); LS.set(K.adm, null); LS.set(K.blk, {at: Date.now(), email: em});   /* 새로고침 후 로그인 화면에 정지 안내 */
+  showBlock();
+  var done = function(){ location.reload(); };
+  var t = setTimeout(done, 1500);
+  rpc('qw_report', {p_token: tk || null, p_email: em, p_reason: reason, p_ua: navigator.userAgent})
+    .then(function(){ clearTimeout(t); done(); }, function(){ clearTimeout(t); done(); });
+}
+function guard(){
+  if (UPDATING || LEAVING) return true;   /* 화면 업데이트·새로고침·창 닫는 중 : 멈춤 감지 제외 (페이지가 멈추는 순간을 개발자도구로 오인하지 않게) */
+  var bad = autoCheck();
+  if (bad.length) { block('자동화 도구 감지 : ' + bad.slice(0, 5).join(', ')); return false; }
+  if (devtoolsOpen()) { block('개발자 도구 사용 감지'); return false; }
+  return true;
+}
+document.addEventListener('keydown', function(e){
+  var k = (e.key || '').toLowerCase(), c = e.ctrlKey || e.metaKey;
+  if (k === 'f12' || (c && e.shiftKey && (k === 'i' || k === 'j' || k === 'c' || k === 'k')) || (c && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || (c && (k === 'u' || k === 's'))) {
+    e.preventDefault(); e.stopPropagation();
+  }
+}, true);
+document.addEventListener('contextmenu', function(e){
+  var t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+  e.preventDefault();
+}, true);
+document.addEventListener('dragstart', function(e){ if (e.target && e.target.tagName === 'IMG') e.preventDefault(); }, true);
+
+/* ---------- 로그인 화면 ---------- */
+function msg(t, err){ var m = $('gMsg'); if (!m) return; m.textContent = t || ''; m.className = 'g-msg' + (err ? ' err' : ''); }
+function busy(on){ $('gGo').disabled = !!on; }
+function fillSaved(){
+  var s = LS.get(adminMode ? K.amail : K.mail);
+  $('gSave').checked = !!(s && s.on);
+  $('gEmail').value = (s && s.on && s.email) || '';
+  /* 앱 창 : 저장된 이메일이 없으면 마지막 로그인 이메일 자동 입력 */
+  if (!$('gEmail').value && !adminMode && typeof PWA !== 'undefined' && PWA.standalone()) { var ls = LS.get(K.sess); if (ls && ls.email && !ls.admin) $('gEmail').value = ls.email; }
+}
+function setMode(admin){
+  adminMode = !!admin;
+  $('gPwRow').hidden = !adminMode; $('gPw').value = '';
+  $('gTitle').textContent = adminMode ? '관리자 로그인' : '로그인';
+  $('gSub').textContent = adminMode ? '관리자 이메일과 비밀번호를 입력해 주세요.' : '등록된 이메일 주소로 로그인해 주세요.';
+  $('gModeLbl').textContent = adminMode ? '관리자' : '영업 담당자';
+  $('gMode').textContent = adminMode ? '영업 담당자 로그인' : '관리자 로그인';
+  $('gUp').hidden = true; msg('');
+  fillSaved();
+  ($('gEmail').value ? (adminMode ? $('gPw') : $('gEmail')) : $('gEmail')).focus();
+}
+function rememberEmail(email){
+  LS.set(adminMode ? K.amail : K.mail, $('gSave').checked ? {on: true, email: email} : null);
+}
+function showGate(text, err){
+  $('gate').hidden = false; $('app').hidden = true;
+  setMode(false);
+  if (text) msg(text, err);
+}
+$('gMode').onclick = function(){ setMode(!adminMode); };
+$('gForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if (!guard()) return;
+  var email = $('gEmail').value.trim().toLowerCase();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg('이메일 주소를 정확히 입력해 주세요.', true); $('gEmail').focus(); return; }
+  busy(true); msg('로그인 중…');
+  if (!adminMode) {
+    rpc('qw_login', {p_email: email, p_ua: navigator.userAgent}).then(function(r){
+      busy(false);
+      if (!r || !r.ok) {
+        msg(r && r.code === 'blocked' ? (r.msg || '비정상 접근이 감지되어 이용이 정지되었습니다. 관리자에게 문의하세요.') : r && r.code === 'locked' ? '로그인 시도가 너무 많거나 비정상 접근 기록이 있어 잠시 제한되었습니다. 잠시 후 다시 시도해 주세요.' : '등록되지 않은 이메일입니다. 관리자에게 권한 등록을 요청해 주세요.', true);
+        return;
+      }
+      rememberEmail(email); startSession(r);
+    }).catch(function(err){ busy(false); msg('서버에 연결하지 못했습니다. (' + err.message + ')', true); });
+  } else {
+    var pw = $('gPw').value;
+    if (!pw) { busy(false); msg('비밀번호를 입력해 주세요.', true); $('gPw').focus(); return; }
+    /* 비밀번호 대소문자 구분 없음 : 소문자로 먼저 로그인, 실패하면 입력한 그대로 한 번 더 */
+    var pwl = pw.toLowerCase();
+    authReq('password', {email: email, password: pwl}).catch(function(err){
+      if (pwl === pw) throw err;
+      return authReq('password', {email: email, password: pw});
+    }).then(function(a){
+      ADM = a; LS.set(K.adm, a);
+      return rpc('qw_admin_login', {p_ua: navigator.userAgent}, a.jwt);
+    }).then(function(r){
+      busy(false);
+      if (!r || !r.ok) { ADM = null; LS.set(K.adm, null); msg('관리자 권한이 없는 계정입니다.', true); return; }
+      rememberEmail(email); startSession(r);
+    }).catch(function(err){ busy(false); ADM = null; LS.set(K.adm, null); msg(err.message, true); });
+  }
+});
+
+/* ---------- 세션 · 화면 불러오기 ---------- */
+function startSession(r){
+  LS.set(K.blk, null);
+  SESS = {token: r.token, email: r.email, company: r.company || '', name: r.name || '', expires: r.expires, admin: !!r.admin};
+  LS.set(K.sess, SESS);
+  try { sessionStorage.setItem('qw_app', '1'); } catch(e){}
+  launch();
+}
+/* 업데이트 반영 게이지 : 관리자가 화면 파일을 바꾼 뒤 처음 열 때 (이 PC 에서 마지막으로 쓴 화면 버전과 다르면) */
+var UPG = {t: null, v: 0, at: 0};
+function updGauge(on, pct){
+  var u = $('upd'); if (!u) return;
+  if (!on){ clearInterval(UPG.t); u.hidden = true; return; }
+  u.hidden = false; $('updT').textContent = '업데이트 반영 중…'; $('updS').innerHTML = '관리자가 새 화면을 반영했습니다.<br>잠시만 기다려 주세요.';
+  var set = function(p){ UPG.v = p; $('updBar').style.width = p + '%'; $('updPct').textContent = Math.round(p) + '%'; };
+  if (pct != null){ set(pct); return; }
+  set(3); UPG.at = Date.now(); clearInterval(UPG.t);
+  UPG.t = setInterval(function(){ if (UPG.v < 88) set(UPG.v + (88 - UPG.v) * 0.08 + 0.4); }, 120);   /* 받는 동안 88% 까지 서서히 */
+}
+function launch(){
+  msg('화면을 불러오는 중…'); busy(true);
+  var last = LS.get(K.appv) || '';
+  var pre = last ? rpc('qw_app_ver', {p_token: SESS.token}).then(function(r){ return r && r.ok && r.ver ? r.ver : ''; }, function(){ return ''; }) : Promise.resolve('');
+  pre.then(function(ver){
+    var gauge = !!(ver && last && ver !== last);
+    if (gauge) updGauge(true);
+    return rpc('qw_get', {p_token: SESS.token, p_kind: 'app'}).then(function(r){ return [r, gauge]; });
+  }).then(function(x){
+    var r = x[0], gauge = x[1];
+    busy(false);
+    if (!r || !r.ok) { expire('로그인이 만료되었습니다. 다시 로그인해 주세요.'); return; }
+    if (!r.body || !r.body.js) {
+      if (SESS.admin) { $('gUp').hidden = false; msg('서버에 화면 파일이 아직 없습니다.'); }
+      else msg('화면을 준비 중입니다. 관리자에게 문의해 주세요.', true);
+      return;
+    }
+    APPV = r.saved_at || '';
+    if (!gauge){ mount(r.body); if (APPV) LS.set(K.appv, APPV); return; }
+    clearInterval(UPG.t); updGauge(true, 96);
+    var wait = Math.max(0, 1500 - (Date.now() - UPG.at));
+    setTimeout(function(){
+      updGauge(true, 100); $('updT').textContent = '업데이트 완료'; $('updS').textContent = '새 화면으로 시작합니다.';
+      setTimeout(function(){ mount(r.body); if (APPV) LS.set(K.appv, APPV); updGauge(false); }, 600);   /* 게이지 100% 뒤에 화면 열기 */
+    }, wait);
+  }).catch(function(err){ busy(false); updGauge(false); msg('서버에 연결하지 못했습니다. (' + err.message + ')', true); });
+}
+/* 화면 자동 업데이트 : 관리자가 화면 파일을 바꾸면 안내 후 새로 열기 (supabase_appver.sql · 없으면 조용히 건너뜀) */
+var APPV = '', UPDATING = false, DVT = null, LEAVING = false;
+window.addEventListener('beforeunload', function(){ LEAVING = true; }); window.addEventListener('pagehide', function(){ LEAVING = true; });
+function checkAppVer(){
+  if (!SESS || !MOUNTED || UPDATING || !APPV) return;
+  rpc('qw_app_ver', {p_token: SESS.token}).then(function(r){
+    if (!r || !r.ok || !r.ver || r.ver === APPV) return;
+    UPDATING = true; clearInterval(HB); clearInterval(DVT);
+    $('updT').textContent = '화면을 업데이트하고 있습니다'; $('updS').innerHTML = '관리자가 새 화면을 반영했습니다.<br>잠시 후 자동으로 새 화면이 열립니다.'; $('updBar').style.width = '0%'; $('updPct').textContent = ''; $('upd').hidden = false;
+    try { sessionStorage.setItem('qw_app', '1'); } catch(e){}
+    setTimeout(function(){ location.reload(); }, 1200);
+  }).catch(function(){});
+}
+function mount(b){
+  if (MOUNTED) return; MOUNTED = true;
+  var st = document.createElement('style'); st.textContent = b.css || ''; document.head.appendChild(st);
+  $('app').innerHTML = b.html || '';
+  $('gate').hidden = true; $('app').hidden = false;
+  try { (new Function('SHELL', b.js))(API); }
+  catch(err){ $('app').hidden = true; $('gate').hidden = false; msg('화면 실행 오류 : ' + err.message, true); return; }
+  startTimers();
+  try { PWA.afterLogin(); } catch(e){}
+}
+function uploadApp(file){
+  return new Promise(function(res, rej){
+    var fr = new FileReader();
+    fr.onload = function(){ try { res(JSON.parse(fr.result)); } catch(e){ rej(new Error('화면 파일 형식이 올바르지 않습니다.')); } };
+    fr.onerror = function(){ rej(new Error('파일을 읽지 못했습니다.')); };
+    fr.readAsText(file, 'utf-8');
+  }).then(function(b){
+    if (!b || !b.js || !b.html) throw new Error('화면 파일(app-bundle.json)이 아닙니다.');
+    return adminToken().then(function(t){ return rpc('qw_admin_put', {p_kind: 'app', p_body: b}, t); }).then(function(){ return b; });
+  });
+}
+$('gUpFile').addEventListener('change', function(){
+  var f = this.files && this.files[0]; this.value = ''; if (!f) return;
+  msg('화면 파일 등록 중…');
+  uploadApp(f).then(function(b){ $('gUp').hidden = true; msg(''); mount(b); }).catch(function(err){ msg(err.message, true); });
+});
+
+/* ---------- 로그인 유지 확인 · 매일 06시 자동 로그아웃 ---------- */
+var REASON = {
+  '자동 로그아웃(06시)': '매일 오전 6시에 자동 로그아웃됩니다. 다시 로그인해 주세요.',
+  '권한 삭제': '접속 권한이 해제되었습니다. 관리자에게 문의해 주세요.',
+  '강제 로그아웃': '관리자에 의해 로그아웃되었습니다.',
+  '이메일 변경': '등록 이메일이 변경되었습니다. 새 이메일로 로그인해 주세요.',
+  '비정상 접근': '비정상 접근으로 로그아웃되었습니다.',
+  '이용 정지': '비정상 접근이 감지되어 이용이 정지되었습니다. 관리자에게 문의하세요.',
+  '로그아웃': '로그아웃되었습니다.'
+};
+function heartbeat(){
+  if (!SESS || BLOCKED) return;
+  if (SESS.expires && Date.now() >= new Date(SESS.expires).getTime()) { expire(REASON['자동 로그아웃(06시)']); return; }
+  rpc('qw_session', {p_token: SESS.token}).then(function(r){
+    if (r && r.ok) return;
+    expire(REASON[r && r.reason] || '로그인이 만료되었습니다. 다시 로그인해 주세요.');
+  }).catch(function(){});
+}
+function startTimers(){
+  clearInterval(HB); HB = setInterval(function(){ if (guard()) { heartbeat(); checkAppVer(); } }, 60000);
+  clearTimeout(EXPT);
+  var left = SESS && SESS.expires ? new Date(SESS.expires).getTime() - Date.now() : 0;
+  if (left > 0 && left < 2147000000) EXPT = setTimeout(function(){ expire(REASON['자동 로그아웃(06시)']); }, left + 1000);
+  clearInterval(DVT); DVT = setInterval(function(){ if (!BLOCKED && !UPDATING && !LEAVING && devtoolsOpen()) block('개발자 도구 사용 감지'); }, 1500);
+}
+document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible' && MOUNTED && guard()) { heartbeat(); checkAppVer(); } });
+function clearLocal(){ SESS = null; ADM = null; LS.set(K.sess, null); LS.set(K.adm, null); }
+function expire(text){
+  clearInterval(HB); clearTimeout(EXPT);
+  clearLocal();
+  try { sessionStorage.setItem(K.msg, text || ''); } catch(e){}
+  location.reload();
+}
+function logout(){
+  var tk = SESS && SESS.token;
+  var go = function(){ expire(REASON['로그아웃']); };
+  if (!tk) return go();
+  var t = setTimeout(go, 1500);
+  rpc('qw_logout', {p_token: tk}).then(function(){ clearTimeout(t); go(); }, function(){ clearTimeout(t); go(); });
+}
+
+/* ---------- 화면(앱)에 넘겨주는 기능 ---------- */
+var API = {
+  profile: function(){ return SESS ? {email: SESS.email, company: SESS.company, name: SESS.name, admin: SESS.admin, expires: SESS.expires} : null; },
+  isAdmin: function(){ return !!(SESS && SESS.admin && ADM); },
+  get: function(kind){
+    return rpc('qw_get', {p_token: SESS.token, p_kind: kind}).then(function(r){
+      if (!r || !r.ok) { if (r && r.code === 'auth') heartbeat(); throw new Error('데이터를 불러오지 못했습니다.'); }
+      return r.body;
+    });
+  },
+  /* 회원 권한 서버 호출 (세션 토큰 자동 첨부) */
+  call: function(fn, args){
+    if (!SESS) return Promise.reject(new Error('로그인이 필요합니다.'));
+    return rpc(fn, Object.assign({p_token: SESS.token}, args || {})).then(function(r){
+      if (r && r.ok === false && r.code === 'auth') { heartbeat(); throw new Error('로그인이 만료되었습니다.'); }
+      return r;
+    });
+  },
+  token: function(){ return SESS ? SESS.token : null; },
+  pwa: {standalone: function(){ return PWA.standalone(); }, open: function(){ PWA.open(); }},
+  adminToken: adminToken,
+  adminRpc: function(fn, args){ return adminToken().then(function(t){ return rpc(fn, args || {}, t); }); },
+  uploadApp: uploadApp,
+  logout: logout,
+  server: {url: CFG.url, key: CFG.key}
+};
+
+/* ---------- PC 앱(PWA) 설치 ----------
+   영업자 PC 로그인 후 : 안내 전이거나 관리자가 [앱설치 재안내]를 눌렀을 때만 설치 안내 (서버 qw_pwa_get · supabase_pwa.sql)
+     · 크롬·엣지 : [앱 설치하기] = 브라우저 설치 확인창 → 설치 후 바탕화면 "로드온_종합" 아이콘으로 실행 (앱은 로그인 화면부터)
+     · 그 외 브라우저 : 크롬 다운로드 · 크롬으로 열기 안내
+     · [설치 안 함] = 다시 묻지 않음 (관리자 재안내 전까지) · 로그인 화면 [PC 앱으로 설치] 링크로 언제든 설치
+   휴대폰 : 자동 안내 없음 (로그인 화면 링크만) · 저장(캐시) 없음 → 업데이트 시 재설치 불필요 */
+var PWA = (function(){
+  var ua = navigator.userAgent || '', DP = null, shown = false, WANT = false, T0 = Date.now(), CUR = '';
+  var MOB = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+  /* 크롬·엣지 여부 : 그 외 브라우저(파이어폭스·사파리·웨일·삼성인터넷·카카오톡 등 앱 안 브라우저)는 크롬 열기·설치 안내 */
+  var UAD = navigator.userAgentData, BR = (UAD && UAD.brands || []).map(function(b){ return b.brand; }).join('|');
+  var IOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+  var AND = /Android/i.test(ua), WIN = /Windows/i.test(ua);
+  var INAPP = /KAKAOTALK|NAVER\(|DaumApps|Instagram|FBAN|FBAV|Line\/|; wv\)/i.test(ua);
+  var SAF = IOS && !INAPP && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS|OPT\/|Whale|SamsungBrowser/.test(ua);   /* 아이폰·아이패드 사파리 : 홈 화면에 추가로 설치 */
+  var PURE = !!BR && BR.split('|').every(function(b){ return /^Chromium$|Not.?A.?Brand/i.test(b); });   /* 순수 크로미움 (크롬과 동일) */
+  var CHROME_OK = !INAPP && (IOS ? /CriOS|EdgiOS/.test(ua)
+    : (/Google Chrome|Microsoft Edge|HeadlessChrome/.test(BR) || PURE || (!UAD && /Chrome\/|Edg\//.test(ua) && !/OPR\/|SamsungBrowser|Whale|YaBrowser|Firefox|FxiOS/i.test(ua))));
+  var URL0 = location.href.split('#')[0];
+  function esc(t){ return String(t).replace(/[&<>"']/g, function(c){ return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]; }); }
+  var CHROME_DL = IOS ? 'https://apps.apple.com/kr/app/id535886823' : AND ? 'https://play.google.com/store/apps/details?id=com.android.chrome' : 'https://www.google.com/intl/ko/chrome/';
+  function chromeOpenUrl(){
+    if (AND) return 'intent://' + URL0.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' + encodeURIComponent(CHROME_DL) + ';end';
+    if (IOS) return URL0.replace(/^https:\/\//, 'googlechromes://').replace(/^http:\/\//, 'googlechrome://');
+    return '';
+  }
+  function copyUrl(btn){
+    var done = function(){ btn.querySelector('span').innerHTML = '주소를 복사했습니다<small>크롬 주소창에 붙여넣기 (Ctrl+V) 하세요</small>'; };
+    try { navigator.clipboard.writeText(URL0).then(done, function(){ prompt('주소를 복사해 주세요.', URL0); }); } catch(e){ prompt('주소를 복사해 주세요.', URL0); }
+  }
+  function standalone(){
+    try { return navigator.standalone === true || ['standalone', 'fullscreen', 'minimal-ui', 'window-controls-overlay'].some(function(m){ return matchMedia('(display-mode: ' + m + ')').matches; }); } catch(e){ return false; }
+  }
+  function local(){ return LS.get(K.pwa) || {}; }
+  function setLocal(o){ LS.set(K.pwa, Object.assign(local(), o)); }
+  function allowed(){ return !standalone() && !BLOCKED && !LS.get(K.blk) && $('pwBg'); }
+  function hide(){ var b = $('pwBg'); if (b) b.hidden = true; CUR = ''; var a = $('pwArr'); if (a) a.hidden = true; }
+  function inst(on){ var g = $('gInst'); if (g) g.hidden = !on || BLOCKED; }
+  function li(a){ return a.map(function(t){ return '<li><span>' + t + '</span></li>'; }).join(''); }
+  function mark(st){
+    if (!SESS || !SESS.token || SESS.admin) return;
+    rpc('qw_pwa_set', {p_token: SESS.token, p_state: st, p_ua: navigator.userAgent}).catch(function(){});
+  }
+  function decline(){ hide(); setLocal({declined: Date.now()}); mark('declined'); }
+  function accepted(){
+    setLocal({installed: Date.now(), declined: 0});
+    if (SESS && SESS.email && !SESS.admin) LS.set(K.mail, {on: true, email: SESS.email});   /* 앱 로그인 화면에 이메일 자동 입력 */
+    mark('installed');
+  }
+  function show(mode){
+    var bg = $('pwBg'); if (!bg) return;
+    $('pwNo').onclick = decline;
+    $('pwNo').hidden = false; $('pwNo').textContent = '설치 안 함'; $('pwGo').hidden = false; $('pwGo').disabled = false; $('pwA').hidden = true; $('pwA').innerHTML = ''; $('pwB').className = 'pw-b'; $('pwL').className = 'pw-l'; $('pwArr').hidden = true;
+    $('pwF').textContent = '[설치 안 함]을 누르면 다시 묻지 않습니다 · 나중에 설치 : 로그인 화면 아래 ' + (MOB ? '[앱으로 설치]' : '[PC 앱으로 설치]');
+    if (mode === 'install') {
+      $('pwT').textContent = MOB ? '앱으로 설치하시겠어요?' : 'PC 앱으로 설치하시겠어요?';
+      $('pwS').textContent = '로드온_종합 · 설치 1번이면 다음부터 바로 실행';
+      $('pwL').innerHTML = li(MOB
+        ? ['홈 화면에 <b>아이콘으로 바로 실행</b>', '주소창 없는 <b>전용 앱 화면</b> · 로그인 화면부터 시작', '로그인·데이터·업데이트는 <b>지금과 동일</b> (재설치 불필요)']
+        : ['바탕화면·작업표시줄 <b>아이콘으로 바로 실행</b>', '주소창·탭 없는 <b>전용 프로그램 창</b> · 로그인 화면부터 시작', '로그인·데이터·업데이트는 <b>지금과 동일</b> (재설치 불필요)']);
+      $('pwGo').textContent = '앱 설치하기';
+      $('pwGo').onclick = install;
+    } else if (mode === 'manual') {
+      $('pwT').textContent = MOB ? '앱으로 설치하시겠어요?' : 'PC 앱으로 설치하시겠어요?';
+      $('pwS').textContent = MOB ? '로드온_종합 · 크롬 메뉴에서 바로 설치할 수 있어요' : '로드온_종합 · 크롬 주소창에서 바로 설치할 수 있어요';
+      $('pwL').innerHTML = li(MOB
+        ? ['크롬 오른쪽 위 <b>⋮ 메뉴 → 홈 화면에 추가</b> (또는 <b>앱 설치</b>) → <b>[설치]</b>', '설치 후 홈 화면 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']
+        : ['크롬 주소창 오른쪽 <b>설치 아이콘(⊕)</b> → <b>[설치]</b>', '아이콘이 없으면 오른쪽 위 <b>⋮ 메뉴 → 전송·저장·공유 → 로드온_종합 설치</b>', '설치 후 바탕화면 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']);
+      $('pwGo').textContent = '설치했어요';
+      $('pwGo').onclick = function(){ hide(); accepted(); };
+      $('pwF').textContent = '잠시 후 [앱 설치하기] 버튼으로 바뀌면 바로 설치할 수 있습니다 · [설치 안 함] = 다시 묻지 않음';
+    } else if (mode === 'ios' && SAF) {   /* 아이폰·아이패드 사파리 : 필수 동의 후 홈 화면에 추가 안내 */
+      $('pwT').textContent = '앱으로 설치하시겠어요?';
+      $('pwS').textContent = '로드온_종합 · 홈 화면 아이콘으로 바로 실행';
+      $('pwL').innerHTML = li(['로그인·데이터·업데이트는 <b>지금과 동일</b> · PC와 견적 저장 연동', '설치는 사파리 <b>공유 → 홈 화면에 추가</b> (30초)']);
+      $('pwA').innerHTML = '<label class="pw-agree" id="pwAgL"><input type="checkbox" id="pwAg"><span><b>[필수]</b> 이 기기 홈 화면에 <b style="color:inherit">로드온_종합</b> 앱 아이콘을 추가하고, 로그인 이메일을 이 기기에 저장하는 것에 동의합니다.</span></label>';
+      $('pwA').hidden = false;
+      $('pwGo').textContent = '동의하고 설치'; $('pwGo').disabled = true;
+      $('pwAg').onchange = function(){ $('pwGo').disabled = !this.checked; $('pwAgL').classList.toggle('on', this.checked); };
+      $('pwGo').onclick = function(){ if (!$('pwAg').checked) return; setLocal({agree: Date.now()}); show('ios2'); };
+    } else if (mode === 'ios2') {
+      var PAD = /iPad/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+      var SH = '<svg class="pw-sh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8.5H6.5a1 1 0 0 0-1 1V20a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9.5a1 1 0 0 0-1-1H16"/><path d="M12 3v11"/><path d="m8.5 6.5 3.5-3.5 3.5 3.5"/></svg>';
+      $('pwT').textContent = '홈 화면에 추가해 주세요';
+      $('pwS').textContent = '아래 순서대로 누르면 아이콘이 생깁니다';
+      $('pwL').className = 'pw-l pw-n';
+      $('pwL').innerHTML = li([(PAD ? '화면 <b>오른쪽 위</b>' : '화면 <b>아래</b>') + ' 공유 버튼 ' + SH + ' 누르기', '<b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면 <b>로드온_종합</b> 아이콘으로 실행 → 처음 1번 로그인']);
+      $('pwNo').textContent = '닫기'; $('pwNo').onclick = hide;
+      $('pwGo').textContent = '추가했어요';
+      $('pwGo').onclick = function(){ hide(); accepted(); };
+      $('pwF').textContent = '목록에 없으면 공유 메뉴를 위로 올려 [홈 화면에 추가]를 찾아 주세요';
+      $('pwArr').className = 'pw-arr' + (PAD ? ' top' : ''); $('pwArr').hidden = false;
+    } else if (mode === 'ios') {
+      $('pwT').textContent = '앱으로 설치하시겠어요?';
+      $('pwS').textContent = SAF ? '로드온_종합 · 사파리 공유 메뉴에서 홈 화면에 추가' : '아이폰·아이패드는 사파리에서 열어야 홈 화면에 설치됩니다';
+      $('pwL').innerHTML = li(SAF
+        ? ['화면 아래(또는 위) <b>공유 버튼(□↑)</b> 누르기', '목록에서 <b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면의 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 추가했다면 <b>[설치했어요]</b>']
+        : ['<b>[주소 복사]</b> → <b>사파리</b> 주소창에 붙여넣기 → 같은 이메일로 로그인', '사파리 <b>공유 버튼(□↑) → 홈 화면에 추가 → [추가]</b>', '홈 화면의 <b>로드온_종합</b> 아이콘으로 실행']);
+      if (!SAF){ $('pwA').innerHTML = '<button type="button" data-pw="copy"><span>주소 복사<small>사파리 주소창에 붙여넣기 하세요</small></span><i>⧉</i></button>'; $('pwA').hidden = false; [].forEach.call($('pwA').querySelectorAll('[data-pw="copy"]'), function(b){ b.onclick = function(){ copyUrl(b); }; }); }
+      $('pwGo').textContent = '설치했어요';
+      $('pwGo').onclick = function(){ hide(); accepted(); };
+    } else if (mode === 'other') {
+      $('pwT').textContent = MOB ? '크롬에서 앱을 설치해 주세요' : '크롬에서 PC 앱을 설치해 주세요';
+      $('pwS').textContent = INAPP ? '카카오톡 등 앱 안의 브라우저에서는 앱 설치가 되지 않습니다' : '지금 브라우저에서는 앱 설치가 되지 않습니다';
+      $('pwL').innerHTML = li(MOB
+        ? ['<b>크롬</b>에서 열면 앱으로 설치할 수 있습니다', '크롬이 없으면 <b>[크롬 설치하기]</b> → 설치 후 다시 열기']
+        : ['크롬이 없으면 : <b>[크롬 다운로드]</b> → 설치', '<b>[주소 복사]</b> → 크롬 주소창에 붙여넣기 → 같은 이메일로 로그인', '크롬에 뜨는 안내창의 <b>[앱 설치하기]</b> → 바탕화면 <b>로드온_종합</b> 아이콘으로 실행']);
+      var A = [], co = chromeOpenUrl();
+      if (co) A.push('<a class="pri" href="' + esc(co) + '"><span>크롬으로 열기' + (AND ? '<small>크롬이 없으면 설치 화면(Play 스토어)으로 이동</small>' : '<small>크롬이 설치되어 있으면 바로 열립니다</small>') + '</span><i>↗</i></a>');
+      A.push('<a' + (co ? '' : ' class="pri"') + ' href="' + esc(CHROME_DL) + '" target="_blank" rel="noopener"><span>' + (MOB ? '크롬 설치하기' : '크롬 다운로드') + '<small>' + (IOS ? 'App Store' : AND ? 'Play 스토어' : 'google.com/chrome · 무료 · 설치 후 아래 [주소 복사]') + '</small></span><i>⬇</i></a>');
+      A.push('<button type="button" data-pw="copy"><span>주소 복사<small>' + (co ? '다른 브라우저에 붙여넣기' : '크롬 주소창에 붙여넣기 하세요') + '</small></span><i>⧉</i></button>');
+      if (WIN && !MOB) A.push('<a href="microsoft-edge:' + esc(URL0) + '"><span>엣지로 바로 열기<small>윈도우 기본 브라우저 · 크롬 없이도 앱 설치 가능</small></span><i>↗</i></a>');
+      $('pwA').innerHTML = A.join(''); $('pwA').hidden = false;
+      [].forEach.call($('pwA').querySelectorAll('[data-pw="copy"]'), function(b){ b.onclick = function(){ copyUrl(b); }; });
+      $('pwGo').hidden = true; $('pwB').className = 'pw-b one';
+    } else if (mode === 'done') {
+      $('pwT').textContent = '설치가 완료되었습니다';
+      $('pwS').textContent = '다음부터는 아이콘으로 바로 실행하세요';
+      $('pwL').innerHTML = li(MOB ? ['홈 화면의 <b>로드온_종합</b> 아이콘으로 실행 → 로그인'] : ['바탕화면·시작 메뉴의 <b>로드온_종합</b> 아이콘으로 실행 → <b>로그인</b> (이메일 자동 입력)', '작업표시줄 고정 : 앱 실행 후 작업표시줄 아이콘 우클릭 → <b>작업 표시줄에 고정</b>']);
+      $('pwNo').hidden = true; $('pwB').className = 'pw-b one'; $('pwF').textContent = '';
+      $('pwGo').textContent = '확인';
+      $('pwGo').onclick = hide;
+    }
+    CUR = mode; bg.hidden = false;
+  }
+  function offer(mode){
+    if (shown || !allowed()) return;
+    shown = true; show(mode);
+  }
+  function install(){
+    hide();
+    if (!DP) { if (!standalone()) show(IOS ? 'ios' : CHROME_OK ? 'manual' : 'other'); return; }
+    var p = DP; DP = null; inst(false);
+    try {
+      p.prompt();
+      p.userChoice.then(function(c){ if (c && c.outcome === 'accepted') accepted(); else decline(); }, function(){});
+    } catch(e){}
+  }
+  /* 로그인 후 (화면이 열린 뒤) 호출 */
+  function afterLogin(){
+    if (!SESS || !SESS.token || BLOCKED) return;
+    /* 관리자 : 서버 기록 없이 이 PC 기준으로만 안내 (설치 안 함 = 이 PC에서 다시 안 뜸) */
+    var srv = SESS.admin ? Promise.resolve(null) : rpc('qw_pwa_get', {p_token: SESS.token}).then(function(r){ return r && r.ok ? r : null; }, function(){ return null; });
+    if (standalone()) {   /* 앱으로 실행 중 = 설치됨 (관리자 재안내 요청은 그대로 둠 → 다른 PC 브라우저에서 안내) */
+      srv.then(function(r){ if (r && r.state !== 'installed' && !r.reask) mark('installed'); });
+      return;
+    }
+    srv.then(function(r){
+      var ask = r ? r.ask : !local().declined;   /* 서버 설정(supabase_pwa.sql) 전 : 이 기기 기준 */
+      if (!ask) return;
+      WANT = true;
+      if (DP) { offer('install'); return; }
+      setTimeout(function(){ if (DP) offer('install'); else offer(IOS ? 'ios' : CHROME_OK ? 'manual' : 'other'); }, Math.max(300, 2500 - (Date.now() - T0)));
+    });
+  }
+  $('pwNo').onclick = decline;
+  document.addEventListener('keydown', function(e){ var b = $('pwBg'); if (e.key === 'Escape' && b && !b.hidden) hide(); });
+  $('gInst').textContent = MOB ? '앱으로 설치' : 'PC 앱으로 설치';
+  $('gInst').onclick = install;
+  if (CHROME_OK && !MOB && !standalone()) inst(true);
+  if (IOS && !standalone()) { $('gInst').textContent = SAF ? '앱으로 설치 (홈 화면에 추가)' : '사파리에서 앱으로 설치 · 안내'; $('gInst').onclick = function(){ show('ios'); }; inst(true); }
+  else if (!CHROME_OK && !standalone()) { $('gInst').textContent = MOB ? '크롬에서 열기 · 크롬 설치 안내' : '크롬 다운로드 · PC 앱 설치 안내'; $('gInst').onclick = function(){ show('other'); }; inst(true); }
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); DP = e;
+    if (standalone()) return;
+    $('gInst').textContent = MOB ? '앱으로 설치' : 'PC 앱으로 설치'; $('gInst').onclick = install;
+    inst(true);
+    if (CUR === 'manual') show('install');   /* 주소창 안내 중 설치 신호 → [앱 설치하기] 로 전환 */
+    else if (WANT) offer('install');
+  });
+  window.addEventListener('appinstalled', function(){ DP = null; inst(false); accepted(); show('done'); });
+  if (standalone()) document.title = '로드온_종합';
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js', {scope: './'}).catch(function(){}); });
+  }
+  $('wcoSet').onclick = function(){ if (MOUNTED) window.dispatchEvent(new Event('qw-settings')); };
+  $('wcoTheme').onclick = function(){ if (MOUNTED) window.dispatchEvent(new Event('qw-theme')); };
+  new MutationObserver(function(){ var d = document.documentElement.getAttribute('data-theme'); var dark = d ? d === 'dark' : (matchMedia('(prefers-color-scheme: dark)').matches); $('wcoTheme').textContent = dark ? '☀ 화이트' : '🌙 블랙'; }).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  return {standalone: standalone, afterLogin: afterLogin, open: function(){ if (DP) install(); else show(IOS ? 'ios' : CHROME_OK ? 'manual' : 'other'); }};
+})();
+
+/* ---------- 시작 ---------- */
+var BK = LS.get(K.blk);
+if (BK && (typeof BK === 'object' || BK > Date.now())) { clearLocal(); showGate('비정상 접근이 감지되어 이용이 정지되었습니다. 관리자에게 문의하세요.', true); return; }   /* 정지 안내 : 로그인 화면에서 표시 (자동 재감지 없이) */
+if (!guard()) return;
+var note = ''; try { note = sessionStorage.getItem(K.msg) || ''; sessionStorage.removeItem(K.msg); } catch(e){}
+var APPNEW = false; try { APPNEW = PWA.standalone() && !sessionStorage.getItem('qw_app'); } catch(e){}   /* 앱 창 새로 실행 = 로그인 화면부터 */
+if (APPNEW) {
+  showGate(note, false);   /* 브라우저 쪽 로그인은 그대로 둠 */
+} else if (SESS && SESS.token && SESS.expires && new Date(SESS.expires).getTime() > Date.now() && (!SESS.admin || ADM)) {
+  showGate(); $('gate').hidden = false; msg('로그인 확인 중…'); busy(true);
+  rpc('qw_session', {p_token: SESS.token}).then(function(r){
+    busy(false);
+    if (!r || !r.ok) { clearLocal(); showGate(REASON[r && r.reason] || '로그인이 만료되었습니다. 다시 로그인해 주세요.', true); return; }
+    SESS.company = r.company || ''; SESS.name = r.name || ''; SESS.expires = r.expires; LS.set(K.sess, SESS);
+    launch();
+  }).catch(function(err){ busy(false); msg('서버에 연결하지 못했습니다. (' + err.message + ')', true); });
+} else {
+  clearLocal();
+  showGate(note, false);
+}
+})();
+</script>
+</body>
+</html>
