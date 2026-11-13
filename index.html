@@ -356,8 +356,8 @@ function launch(){
     var r = x[0], gauge = x[1];
     busy(false);
     if (!r || !r.ok) { expire('로그인이 만료되었습니다. 다시 로그인해 주세요.'); return; }
-    if (!r.body || !r.body.js) {
-      if (SESS.admin) { $('gUp').hidden = false; msg('서버에 화면 파일이 아직 없습니다.'); }
+    if (!r.body || !r.body.js || r.body.app !== 'roadon') {
+      if (SESS.admin) { $('gUp').hidden = false; msg(r.body && r.body.js ? '서버에 등록된 화면 파일이 로드온용이 아닙니다. roadon-app-bundle.json 을 등록해 주세요.' : '서버에 화면 파일이 아직 없습니다.'); }
       else msg('화면을 준비 중입니다. 관리자에게 문의해 주세요.', true);
       return;
     }
@@ -401,7 +401,8 @@ function uploadApp(file){
     fr.onerror = function(){ rej(new Error('파일을 읽지 못했습니다.')); };
     fr.readAsText(file, 'utf-8');
   }).then(function(b){
-    if (!b || !b.js || !b.html) throw new Error('화면 파일(app-bundle.json)이 아닙니다.');
+    if (!b || !b.js || !b.html) throw new Error('화면 파일이 아닙니다.');
+    if (b.app !== 'roadon') throw new Error('로드온종합견적 화면 파일이 아닙니다 (다른 툴의 파일). roadon-app-bundle.json 을 선택해 주세요.');
     return adminToken().then(function(t){ return rpc('qw_admin_put', {p_kind: 'app', p_body: b}, t); }).then(function(){ return b; });
   });
 }
