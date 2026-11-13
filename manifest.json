@@ -1,7 +1,7 @@
 {
-  "id": "./",
-  "name": "로드온_종합",
-  "short_name": "로드온_종합",
+  "id": "/roadon_capital/",
+  "name": "로드온종합견적",
+  "short_name": "로드온종합견적",
   "description": "금융사 재고 · 견적요청 · 필요서류 안내",
   "lang": "ko",
   "start_url": "./",

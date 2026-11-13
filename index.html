@@ -6,13 +6,13 @@
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,noai,noimageai">
 <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
 <meta name="referrer" content="no-referrer">
-<title>로드온_종합</title>
+<title>로드온종합견적</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
-<meta name="application-name" content="로드온_종합">
+<meta name="application-name" content="로드온종합견적">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="로드온_종합">
+<meta name="apple-mobile-web-app-title" content="로드온종합견적">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -144,7 +144,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
   </form>
 </div>
 <div id="app" hidden></div>
-<div id="wco"><img src="icon-192.png" alt="">로드온_종합<span class="sp"></span><button type="button" id="wcoTheme" title="화면 화이트/블랙 전환">🌙 블랙</button><button type="button" id="wcoSet" title="설정">⚙ 설정</button></div>
+<div id="wco"><img src="icon-192.png" alt="">로드온종합견적<span class="sp"></span><button type="button" id="wcoTheme" title="화면 화이트/블랙 전환">🌙 블랙</button><button type="button" id="wcoSet" title="설정">⚙ 설정</button></div>
 <div class="upd" id="upd" hidden><div><img class="upd-ic" src="icon-192.png" alt=""><h2 id="updT">화면을 업데이트하고 있습니다</h2><p id="updS">관리자가 새 화면을 반영했습니다.<br>잠시 후 자동으로 새 화면이 열립니다.</p><div class="upd-g"><i id="updBar"></i></div><div class="upd-pct" id="updPct">0%</div></div></div>
 <div class="pw-bg" id="pwBg" hidden>
   <div class="pw" role="dialog" aria-modal="true" aria-labelledby="pwT">
@@ -157,6 +157,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
   <div class="pw-arr" id="pwArr" hidden aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg></div>
 </div>
 <script>
+(function(){ var P = 'ro:', S = Storage.prototype, g = S.getItem, t = S.setItem, r = S.removeItem;
+  S.getItem = function(k){ return g.call(this, P + k); }; S.setItem = function(k, v){ return t.call(this, P + k, v); }; S.removeItem = function(k){ return r.call(this, P + k); }; })();
 (function(){
 'use strict';
 var CFG = {url: 'https://juzqzhtrgtnhjajbcaoo.supabase.co', key: 'sb_publishable_0a-1AMN7_C20FKcPDKqVdQ_feRjmNUL'};
@@ -479,7 +481,7 @@ var API = {
 
 /* ---------- PC 앱(PWA) 설치 ----------
    영업자 PC 로그인 후 : 안내 전이거나 관리자가 [앱설치 재안내]를 눌렀을 때만 설치 안내 (서버 qw_pwa_get · supabase_pwa.sql)
-     · 크롬·엣지 : [앱 설치하기] = 브라우저 설치 확인창 → 설치 후 바탕화면 "로드온_종합" 아이콘으로 실행 (앱은 로그인 화면부터)
+     · 크롬·엣지 : [앱 설치하기] = 브라우저 설치 확인창 → 설치 후 바탕화면 "로드온종합견적" 아이콘으로 실행 (앱은 로그인 화면부터)
      · 그 외 브라우저 : 크롬 다운로드 · 크롬으로 열기 안내
      · [설치 안 함] = 다시 묻지 않음 (관리자 재안내 전까지) · 로그인 화면 [PC 앱으로 설치] 링크로 언제든 설치
    휴대폰 : 자동 안내 없음 (로그인 화면 링크만) · 저장(캐시) 없음 → 업데이트 시 재설치 불필요 */
@@ -533,7 +535,7 @@ var PWA = (function(){
     $('pwF').textContent = '[설치 안 함]을 누르면 다시 묻지 않습니다 · 나중에 설치 : 로그인 화면 아래 ' + (MOB ? '[앱으로 설치]' : '[PC 앱으로 설치]');
     if (mode === 'install') {
       $('pwT').textContent = MOB ? '앱으로 설치하시겠어요?' : 'PC 앱으로 설치하시겠어요?';
-      $('pwS').textContent = '로드온_종합 · 설치 1번이면 다음부터 바로 실행';
+      $('pwS').textContent = '로드온종합견적 · 설치 1번이면 다음부터 바로 실행';
       $('pwL').innerHTML = li(MOB
         ? ['홈 화면에 <b>아이콘으로 바로 실행</b>', '주소창 없는 <b>전용 앱 화면</b> · 로그인 화면부터 시작', '로그인·데이터·업데이트는 <b>지금과 동일</b> (재설치 불필요)']
         : ['바탕화면·작업표시줄 <b>아이콘으로 바로 실행</b>', '주소창·탭 없는 <b>전용 프로그램 창</b> · 로그인 화면부터 시작', '로그인·데이터·업데이트는 <b>지금과 동일</b> (재설치 불필요)']);
@@ -541,18 +543,18 @@ var PWA = (function(){
       $('pwGo').onclick = install;
     } else if (mode === 'manual') {
       $('pwT').textContent = MOB ? '앱으로 설치하시겠어요?' : 'PC 앱으로 설치하시겠어요?';
-      $('pwS').textContent = MOB ? '로드온_종합 · 크롬 메뉴에서 바로 설치할 수 있어요' : '로드온_종합 · 크롬 주소창에서 바로 설치할 수 있어요';
+      $('pwS').textContent = MOB ? '로드온종합견적 · 크롬 메뉴에서 바로 설치할 수 있어요' : '로드온종합견적 · 크롬 주소창에서 바로 설치할 수 있어요';
       $('pwL').innerHTML = li(MOB
-        ? ['크롬 오른쪽 위 <b>⋮ 메뉴 → 홈 화면에 추가</b> (또는 <b>앱 설치</b>) → <b>[설치]</b>', '설치 후 홈 화면 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']
-        : ['크롬 주소창 오른쪽 <b>설치 아이콘(⊕)</b> → <b>[설치]</b>', '아이콘이 없으면 오른쪽 위 <b>⋮ 메뉴 → 전송·저장·공유 → 로드온_종합 설치</b>', '설치 후 바탕화면 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']);
+        ? ['크롬 오른쪽 위 <b>⋮ 메뉴 → 홈 화면에 추가</b> (또는 <b>앱 설치</b>) → <b>[설치]</b>', '설치 후 홈 화면 <b>로드온종합견적</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']
+        : ['크롬 주소창 오른쪽 <b>설치 아이콘(⊕)</b> → <b>[설치]</b>', '아이콘이 없으면 오른쪽 위 <b>⋮ 메뉴 → 전송·저장·공유 → 로드온종합견적 설치</b>', '설치 후 바탕화면 <b>로드온종합견적</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 설치했다면 <b>[설치했어요]</b>']);
       $('pwGo').textContent = '설치했어요';
       $('pwGo').onclick = function(){ hide(); accepted(); };
       $('pwF').textContent = '잠시 후 [앱 설치하기] 버튼으로 바뀌면 바로 설치할 수 있습니다 · [설치 안 함] = 다시 묻지 않음';
     } else if (mode === 'ios' && SAF) {   /* 아이폰·아이패드 사파리 : 필수 동의 후 홈 화면에 추가 안내 */
       $('pwT').textContent = '앱으로 설치하시겠어요?';
-      $('pwS').textContent = '로드온_종합 · 홈 화면 아이콘으로 바로 실행';
+      $('pwS').textContent = '로드온종합견적 · 홈 화면 아이콘으로 바로 실행';
       $('pwL').innerHTML = li(['로그인·데이터·업데이트는 <b>지금과 동일</b> · PC와 견적 저장 연동', '설치는 사파리 <b>공유 → 홈 화면에 추가</b> (30초)']);
-      $('pwA').innerHTML = '<label class="pw-agree" id="pwAgL"><input type="checkbox" id="pwAg"><span><b>[필수]</b> 이 기기 홈 화면에 <b style="color:inherit">로드온_종합</b> 앱 아이콘을 추가하고, 로그인 이메일을 이 기기에 저장하는 것에 동의합니다.</span></label>';
+      $('pwA').innerHTML = '<label class="pw-agree" id="pwAgL"><input type="checkbox" id="pwAg"><span><b>[필수]</b> 이 기기 홈 화면에 <b style="color:inherit">로드온종합견적</b> 앱 아이콘을 추가하고, 로그인 이메일을 이 기기에 저장하는 것에 동의합니다.</span></label>';
       $('pwA').hidden = false;
       $('pwGo').textContent = '동의하고 설치'; $('pwGo').disabled = true;
       $('pwAg').onchange = function(){ $('pwGo').disabled = !this.checked; $('pwAgL').classList.toggle('on', this.checked); };
@@ -563,7 +565,7 @@ var PWA = (function(){
       $('pwT').textContent = '홈 화면에 추가해 주세요';
       $('pwS').textContent = '아래 순서대로 누르면 아이콘이 생깁니다';
       $('pwL').className = 'pw-l pw-n';
-      $('pwL').innerHTML = li([(PAD ? '화면 <b>오른쪽 위</b>' : '화면 <b>아래</b>') + ' 공유 버튼 ' + SH + ' 누르기', '<b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면 <b>로드온_종합</b> 아이콘으로 실행 → 처음 1번 로그인']);
+      $('pwL').innerHTML = li([(PAD ? '화면 <b>오른쪽 위</b>' : '화면 <b>아래</b>') + ' 공유 버튼 ' + SH + ' 누르기', '<b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면 <b>로드온종합견적</b> 아이콘으로 실행 → 처음 1번 로그인']);
       $('pwNo').textContent = '닫기'; $('pwNo').onclick = hide;
       $('pwGo').textContent = '추가했어요';
       $('pwGo').onclick = function(){ hide(); accepted(); };
@@ -571,10 +573,10 @@ var PWA = (function(){
       $('pwArr').className = 'pw-arr' + (PAD ? ' top' : ''); $('pwArr').hidden = false;
     } else if (mode === 'ios') {
       $('pwT').textContent = '앱으로 설치하시겠어요?';
-      $('pwS').textContent = SAF ? '로드온_종합 · 사파리 공유 메뉴에서 홈 화면에 추가' : '아이폰·아이패드는 사파리에서 열어야 홈 화면에 설치됩니다';
+      $('pwS').textContent = SAF ? '로드온종합견적 · 사파리 공유 메뉴에서 홈 화면에 추가' : '아이폰·아이패드는 사파리에서 열어야 홈 화면에 설치됩니다';
       $('pwL').innerHTML = li(SAF
-        ? ['화면 아래(또는 위) <b>공유 버튼(□↑)</b> 누르기', '목록에서 <b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면의 <b>로드온_종합</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 추가했다면 <b>[설치했어요]</b>']
-        : ['<b>[주소 복사]</b> → <b>사파리</b> 주소창에 붙여넣기 → 같은 이메일로 로그인', '사파리 <b>공유 버튼(□↑) → 홈 화면에 추가 → [추가]</b>', '홈 화면의 <b>로드온_종합</b> 아이콘으로 실행']);
+        ? ['화면 아래(또는 위) <b>공유 버튼(□↑)</b> 누르기', '목록에서 <b>홈 화면에 추가</b> → 오른쪽 위 <b>[추가]</b>', '홈 화면의 <b>로드온종합견적</b> 아이콘으로 실행 · 로그인 화면부터 시작', '이미 추가했다면 <b>[설치했어요]</b>']
+        : ['<b>[주소 복사]</b> → <b>사파리</b> 주소창에 붙여넣기 → 같은 이메일로 로그인', '사파리 <b>공유 버튼(□↑) → 홈 화면에 추가 → [추가]</b>', '홈 화면의 <b>로드온종합견적</b> 아이콘으로 실행']);
       if (!SAF){ $('pwA').innerHTML = '<button type="button" data-pw="copy"><span>주소 복사<small>사파리 주소창에 붙여넣기 하세요</small></span><i>⧉</i></button>'; $('pwA').hidden = false; [].forEach.call($('pwA').querySelectorAll('[data-pw="copy"]'), function(b){ b.onclick = function(){ copyUrl(b); }; }); }
       $('pwGo').textContent = '설치했어요';
       $('pwGo').onclick = function(){ hide(); accepted(); };
@@ -583,7 +585,7 @@ var PWA = (function(){
       $('pwS').textContent = INAPP ? '카카오톡 등 앱 안의 브라우저에서는 앱 설치가 되지 않습니다' : '지금 브라우저에서는 앱 설치가 되지 않습니다';
       $('pwL').innerHTML = li(MOB
         ? ['<b>크롬</b>에서 열면 앱으로 설치할 수 있습니다', '크롬이 없으면 <b>[크롬 설치하기]</b> → 설치 후 다시 열기']
-        : ['크롬이 없으면 : <b>[크롬 다운로드]</b> → 설치', '<b>[주소 복사]</b> → 크롬 주소창에 붙여넣기 → 같은 이메일로 로그인', '크롬에 뜨는 안내창의 <b>[앱 설치하기]</b> → 바탕화면 <b>로드온_종합</b> 아이콘으로 실행']);
+        : ['크롬이 없으면 : <b>[크롬 다운로드]</b> → 설치', '<b>[주소 복사]</b> → 크롬 주소창에 붙여넣기 → 같은 이메일로 로그인', '크롬에 뜨는 안내창의 <b>[앱 설치하기]</b> → 바탕화면 <b>로드온종합견적</b> 아이콘으로 실행']);
       var A = [], co = chromeOpenUrl();
       if (co) A.push('<a class="pri" href="' + esc(co) + '"><span>크롬으로 열기' + (AND ? '<small>크롬이 없으면 설치 화면(Play 스토어)으로 이동</small>' : '<small>크롬이 설치되어 있으면 바로 열립니다</small>') + '</span><i>↗</i></a>');
       A.push('<a' + (co ? '' : ' class="pri"') + ' href="' + esc(CHROME_DL) + '" target="_blank" rel="noopener"><span>' + (MOB ? '크롬 설치하기' : '크롬 다운로드') + '<small>' + (IOS ? 'App Store' : AND ? 'Play 스토어' : 'google.com/chrome · 무료 · 설치 후 아래 [주소 복사]') + '</small></span><i>⬇</i></a>');
@@ -595,7 +597,7 @@ var PWA = (function(){
     } else if (mode === 'done') {
       $('pwT').textContent = '설치가 완료되었습니다';
       $('pwS').textContent = '다음부터는 아이콘으로 바로 실행하세요';
-      $('pwL').innerHTML = li(MOB ? ['홈 화면의 <b>로드온_종합</b> 아이콘으로 실행 → 로그인'] : ['바탕화면·시작 메뉴의 <b>로드온_종합</b> 아이콘으로 실행 → <b>로그인</b> (이메일 자동 입력)', '작업표시줄 고정 : 앱 실행 후 작업표시줄 아이콘 우클릭 → <b>작업 표시줄에 고정</b>']);
+      $('pwL').innerHTML = li(MOB ? ['홈 화면의 <b>로드온종합견적</b> 아이콘으로 실행 → 로그인'] : ['바탕화면·시작 메뉴의 <b>로드온종합견적</b> 아이콘으로 실행 → <b>로그인</b> (이메일 자동 입력)', '작업표시줄 고정 : 앱 실행 후 작업표시줄 아이콘 우클릭 → <b>작업 표시줄에 고정</b>']);
       $('pwNo').hidden = true; $('pwB').className = 'pw-b one'; $('pwF').textContent = '';
       $('pwGo').textContent = '확인';
       $('pwGo').onclick = hide;
@@ -648,7 +650,7 @@ var PWA = (function(){
     else if (WANT) offer('install');
   });
   window.addEventListener('appinstalled', function(){ DP = null; inst(false); accepted(); show('done'); });
-  if (standalone()) document.title = '로드온_종합';
+  if (standalone()) document.title = '로드온종합견적';
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
     window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js', {scope: './'}).catch(function(){}); });
   }
